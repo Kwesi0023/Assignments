@@ -12,8 +12,8 @@ func main() {
 		ah[i] *= 2 // and then muliply the values by two
 
 	}
-	fmt.Println("Muliplied: ", ah)
-	fmt.Println(" ")
+	fmt.Println("Doubled: ", ah)
+	
 
 	for _, num := range ah {
 
