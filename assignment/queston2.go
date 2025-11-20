@@ -28,6 +28,6 @@ func main() {
 		sum += value
 	}
 
-	fmt.Println("Total sum: ", sum)
+	fmt.Println("Sum: ", sum)
 
 }
