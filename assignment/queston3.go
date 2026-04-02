@@ -1,23 +1,28 @@
 package main
 
+
+import (
+	"gorm.io/gorm"
+)
+	
 type User struct {
-	ID       int
-	Profile  Profile
-	Settings Settings
+	ID       int	`json:"id"`
+	Profile  Profile  `json:"profile"`
+	Settings Settings `json:"settings"`
 }
 
 type Profile struct {
-	Username string
-	Email    string
+	Username string	`json:"username"`
+	Email    string  `json:"email"`
 }
 
 type Settings struct {
-	Theme         string
-	Notifications bool
+	Theme         string	`json:"theme"`
+	Notifications bool		`json:"notifications"`
 }
 
 func PrintDetails(name string, mail string) (string, string) {
-	//userDetails := Profile{Username: "Kwesi", Email: "kkwesi@gmail.com"}
+	userDetails := Profile{Username: "Kwesi", Email: "kkwesi@gmail.com"}
 	var userDetails string
 	names := userDetails.Username
 	mails := userDetails.Email
@@ -26,7 +31,7 @@ func PrintDetails(name string, mail string) (string, string) {
 
 func theThemes(colors string) string {
 	choose := Settings{Theme: "Dark", Notifications: true}
-	//var choose string
+	var choose string
 	colors := choose.Theme
 	return colors
 }
