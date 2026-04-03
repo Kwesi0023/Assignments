@@ -2,29 +2,28 @@ package main
 
 import "fmt"
 
-func main() {
-	ah := []int{1, 2, 3, 4, 5, 7, 8, 9, 10}
-	kk := []int{}
+func PrintEvenNumbers() {
+	countingNumbers := []int{1, 2, 3, 4, 5, 7, 8, 9, 10}
+	evenNumbers := []int{}
 
 	sum := 0
 
-	for i := range ah { // this for loop would go in and out of th slice, by taking the values indiivually
-		ah[i] *= 2 // and then muliply the values by two
+	for i := range countingNumbers { // this for loop would go in and out of the slice, by taking the values indiivually
+		countingNumbers[i] *= 2 // and then muliply the values by two
 
 	}
-	fmt.Println("Doubled: ", ah)
-	
+	fmt.Println("Doubled: ", countingNumbers)
 
-	for _, num := range ah {
+	for _, num := range countingNumbers {
 
 		if num%2 == 0 {
-			kk = append(kk, num)
-			fmt.Printf("Even numbers: %v\n", kk)
+			evenNumbers = append(evenNumbers, num)
+			fmt.Printf("Even numbers: %v\n", evenNumbers)
 		}
 	}
 	fmt.Println(" ")
 
-	for _, value := range kk {
+	for _, value := range evenNumbers {
 		sum += value
 	}
 
