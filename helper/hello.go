@@ -10,9 +10,9 @@ const conferenceTickets = 50
 
 var motto = "Go conference"
 var remainingTickets uint = 50
-var bookings = make([]map[string]string) // for slices we do not specify the number of elements
 
 func main() {
+	var bookings = make([]map[string] string, 0)
 
 	greetUsers(motto, conferenceTickets, remainingTickets)
 
@@ -21,13 +21,13 @@ func main() {
 		firstname, lastname, mail, userTickets := getUserInput()
 
 		// validation of user input
-		isValidEmail, isValidName, isValidTicket := valUserInput()(firstname, lastname, mail, userTickets, remainingTickets)
+		isValidEmail, isValidName, isValidTicket := valUserInput(firstname, lastname, mail, userTickets, remainingTickets)
 
 		if isValidEmail && isValidName && isValidTicket {
 			fmt.Printf("Thank you %v %v for booking %v tickets with us. You will receive a confirmation email at %v\n", firstname, lastname, userTickets, mail)
 
 			// booking the conference
-			bookings := bookingProcess(remainingTickets, userTickets, firstname, lastname, mail, bookings, motto)
+			bookings = bookingProcess(remainingTickets, userTickets, firstname, lastname, mail, bookings, motto)
 
 			// call func that prints firstnames
 			firstNames := getFirstNames(bookings)
@@ -70,7 +70,7 @@ func valUserInput(firstname string, lastname string, mail string, userTickets ui
 
 func getFirstNames(bookings []string) []string {
 	firstNames := []string{}
-	for _, booking := range bookings { // that is an underscre or a blank identifier, it tells GO that there is a variable there and we want to ignnore it.
+	for _, booking := range bookings { // that is an underscore or a blank identifier, it tells GO that there is a variable there and we want to ignnore it.
 		var names = strings.Fields(booking)
 		firstNames = append(firstNames, names[0])
 	}
@@ -98,11 +98,11 @@ func getUserInput() (string, string, string, uint) {
 	return firstname, lastname, mail, userTickets
 }
 
-func bookingProcess(remainingTickets uint, userTickets uint, firstname string, lastname string, mail string, bookings []string, motto string) []string {
+func bookingProcess(remainingTickets uint, userTickets uint, firstname string, lastname string, mail string, bookings []string,  motto string) []string,0 {
 	remainingTickets = remainingTickets - userTickets
 
 	// creating a map for a user
-	var userData = make(map[string]string)
+	var userData = make(map[string]string, 0)
 	userData["firstName"] = firstname
 	userData["lastName"] = lastname
 	userData["E-mail"] = mail

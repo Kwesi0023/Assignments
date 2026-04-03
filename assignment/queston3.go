@@ -1,24 +1,19 @@
-package main
+package assignment
 
-
-import (
-	"gorm.io/gorm"
-)
-	
 type User struct {
-	ID       int	`json:"id"`
+	ID       int      `json:"id"`
 	Profile  Profile  `json:"profile"`
 	Settings Settings `json:"settings"`
 }
 
 type Profile struct {
-	Username string	`json:"username"`
-	Email    string  `json:"email"`
+	Username string `json:"username"`
+	Email    string `json:"email"`
 }
 
 type Settings struct {
-	Theme         string	`json:"theme"`
-	Notifications bool		`json:"notifications"`
+	Theme         string `json:"theme"`
+	Notifications bool   `json:"notifications"`
 }
 
 func PrintDetails(name string, mail string) (string, string) {
